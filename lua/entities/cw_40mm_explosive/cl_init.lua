@@ -5,7 +5,7 @@ function ENT:Draw()
 end
 
 function ENT:Think()
-	if not self.Emitter then
+	if not IsValid( self.Emitter ) then
 		self.Emitter = ParticleEmitter(self:GetPos())
 		self.ParticleDelay = 0
 	end
