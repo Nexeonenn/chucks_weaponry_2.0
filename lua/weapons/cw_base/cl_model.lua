@@ -80,7 +80,7 @@ function SWEP:GetTracerOrigin()
 	end
 
 	local attachmentTbl = self:getMuzzlePosition()
-	if not attachmentTbl or not attachmentTbl.Pos then
+	if not (attachmentTbl and attachmentTbl.Pos) then
 		return self:GetPos()
 	end
 	
@@ -1075,7 +1075,7 @@ function SWEP:PostDrawViewModel()
 end
 
 function SWEP:getMuzzlePosition()
-	return self.CW_VM:GetAttachment(self.MuzzleAttachment)
+	return self.CW_VM:GetAttachment(self.MuzzleAttachment) or nil
 end
 
 -- interaction menu, AKA weapon interaction menu

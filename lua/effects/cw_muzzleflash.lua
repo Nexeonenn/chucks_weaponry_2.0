@@ -54,15 +54,16 @@ function EFFECT:Init(fx)
 	
 	if not ent.dt.Suppressed then
 		local dlight = DynamicLight(self:EntIndex())
-		
-		dlight.r = 255 
-		dlight.g = 218
-		dlight.b = 74
-		dlight.Brightness = 4
-		dlight.Pos = lightPos
-		dlight.Size = 96
-		dlight.Decay = 128
-		dlight.DieTime = CurTime() + FrameTime()
+		if dlight then
+			dlight.r = 255 
+			dlight.g = 218
+			dlight.b = 74
+			dlight.Brightness = 4
+			dlight.Pos = lightPos
+			dlight.Size = 96
+			dlight.Decay = 128
+			dlight.DieTime = CurTime() + FrameTime()
+		end
 	end
 end
 
