@@ -1075,7 +1075,7 @@ function SWEP:PostDrawViewModel()
 end
 
 function SWEP:getMuzzlePosition()
-	return self.CW_VM:GetAttachment(self.MuzzleAttachment) or nil
+	return self.CW_VM:GetAttachment(self.MuzzleAttachment)
 end
 
 -- interaction menu, AKA weapon interaction menu
