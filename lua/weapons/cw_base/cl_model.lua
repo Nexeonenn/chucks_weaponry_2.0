@@ -1075,6 +1075,7 @@ function SWEP:PostDrawViewModel()
 end
 
 function SWEP:getMuzzlePosition()
+	if not IsValid( self.CW_VM ) then return end
 	return self.CW_VM:GetAttachment(self.MuzzleAttachment)
 end
 
