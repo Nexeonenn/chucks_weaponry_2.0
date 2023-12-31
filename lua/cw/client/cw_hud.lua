@@ -4,12 +4,12 @@ local noDraw = { CHudAmmo = true, CHudSecondaryAmmo = true, CHudHealth = true, C
 local noDrawAmmo = { CHudAmmo = true, CHudSecondaryAmmo = true }
 
 local hudEnabled = GetConVar( "cw_customhud" ):GetBool()
-cvar.AddChangeCallback( "cw_customhud", function( _, _, new )
+cvars.AddChangeCallback( "cw_customhud", function( _, _, new )
     hudEnabled = tobool( new )
 end )
 
 local ammoEnabled = GetConVar( "cw_customhud_ammo" ):GetBool()
-cvar.AddChangeCallback( "cw_customhud_ammo", function( _, _, new )
+cvars.AddChangeCallback( "cw_customhud_ammo", function( _, _, new )
     ammoEnabled = tobool( new )
 end )
 
@@ -22,11 +22,11 @@ local function CW_HUDShouldDraw( n )
     local currentWeapon = ply:GetActiveWeapon()
     if not currentWeapon:GetTable().CW20Weapon then return end
 
-    if customAmmo and noDrawAmmo[n]then
+    if ammoEnabled and noDrawAmmo[n] then
         return false
     end
 
-    if customHud and noDraw[n] then
+    if hudEnabled and noDraw[n] then
         return false
     end
 end

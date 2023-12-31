@@ -7,6 +7,7 @@ function loadFile(path)
 end
 
 -- load client files
+AddCSLuaFile( "cw/client/cw_cvars.lua" )
 AddCSLuaFile("autorun/client/cw_cl_init.lua")
 AddCSLuaFile("cw/client/cw_clientmenu.lua")
 AddCSLuaFile("cw/client/cw_hud.lua")
