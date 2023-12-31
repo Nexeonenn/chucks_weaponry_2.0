@@ -22,11 +22,11 @@ local function CW_HUDShouldDraw( n )
     local currentWeapon = ply:GetActiveWeapon()
     if not currentWeapon:GetTable().CW20Weapon then return end
 
-    if customAmmo and noDrawAmmo[n]then
+    if ammoEnabled and noDrawAmmo[n] then
         return false
     end
 
-    if customHud and noDraw[n] then
+    if hudEnabled and noDraw[n] then
         return false
     end
 end
