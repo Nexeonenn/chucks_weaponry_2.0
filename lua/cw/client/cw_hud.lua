@@ -4,12 +4,12 @@ local noDraw = { CHudAmmo = true, CHudSecondaryAmmo = true, CHudHealth = true, C
 local noDrawAmmo = { CHudAmmo = true, CHudSecondaryAmmo = true }
 
 local hudEnabled = GetConVar( "cw_customhud" ):GetBool()
-cvar.AddChangeCallback( "cw_customhud", function( _, _, new )
+cvars.AddChangeCallback( "cw_customhud", function( _, _, new )
     hudEnabled = tobool( new )
 end )
 
 local ammoEnabled = GetConVar( "cw_customhud_ammo" ):GetBool()
-cvar.AddChangeCallback( "cw_customhud_ammo", function( _, _, new )
+cvars.AddChangeCallback( "cw_customhud_ammo", function( _, _, new )
     ammoEnabled = tobool( new )
 end )
 
