@@ -1,5 +1,6 @@
 function CustomizableWeaponry.PlayerInitialSpawn(ply)
-	timer.Simple(3, function()
+	timer.Simple(3, function() 
+		if not IsValid(ply) then return end
 		CustomizableWeaponry.postSpawn(ply)
 	end)
 end

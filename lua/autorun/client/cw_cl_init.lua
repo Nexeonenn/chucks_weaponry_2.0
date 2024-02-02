@@ -1,3 +1,4 @@
+include("cw/client/cw_cvars.lua")
 include("cw/client/cw_clientmenu.lua")
 include("cw/client/cw_hud.lua")
 include("cw/client/cw_umsgs.lua")
