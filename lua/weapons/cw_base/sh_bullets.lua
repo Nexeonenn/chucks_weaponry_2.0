@@ -52,6 +52,8 @@ function SWEP:FireBullet(damage, cone, clumpSpread, bullets)
 	sp = GetShootPos(self.Owner)
 	local commandNumber = self.Owner:GetCurrentCommand():CommandNumber()
 	math.randomseed(commandNumber)
+	local extraRNG = math.random(10000000, 99999999)
+	math.randomseed(extraRNG)
 	
 	if self.Owner:Crouching() then
 		cone = cone * 0.85
