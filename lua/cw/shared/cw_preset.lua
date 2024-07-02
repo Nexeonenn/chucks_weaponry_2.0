@@ -6,7 +6,7 @@ AddCSLuaFile()
 CustomizableWeaponry.preset = {}
 CustomizableWeaponry.preset.enabled = true -- set this to 'false' to disable preset saving/loading
 CustomizableWeaponry.preset.delay = 1 -- amount of time in seconds to delay the ability to load a preset after the client did that just now
-CustomizableWeaponry.preset.networkString = "CW20_PRESET_LOAD" -- the string that will be used for preset loading networking
+CustomizableWeaponry.preset.networkString = "CW20_PRESETLOAD" -- the string that will be used for preset loading networking
 CustomizableWeaponry.preset.presetSavedString = "CW20_PRESET_SAVED" -- the string that will be sent to the server to notify that we saved a preset
 CustomizableWeaponry.preset.folder = CustomizableWeaponry.baseFolder .. "/presets/"
 CustomizableWeaponry.preset.invalidSymbols = "[/.:;']"
