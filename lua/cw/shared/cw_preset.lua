@@ -19,7 +19,21 @@ end
 
 if CustomizableWeaponry.preset.enabled and SERVER then
 	net.Receive(CustomizableWeaponry.preset.networkString, function(len, ply)
-		-- read and decode the received string
+		if len > 16384 then
+			ply:Kick("CW2 Preset data too large")
+			return
+		end
+
+		ply.CW20PresetNetCount = ( ply.CW20PresetNetCount or 0 ) + 1
+		if ply.CW20PresetNetCount > 10 then
+			ply:Kick("CW2 Too many net messages sent in a short period of time.")
+			return
+		end
+
+		timer.Simple( 0, function()
+			ply.CW20PresetNetCount = nil
+		end )
+
 		local name_sv = net.ReadString()
 		if not name_sv then return end
 

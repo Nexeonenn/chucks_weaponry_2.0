@@ -66,7 +66,7 @@ function SWEP:CalcView(ply, pos, ang, fov)
 		
 	if self.freeAimOn then
 		fov = 90 -- force FOV to 90 when in free aim mode, unfortunately, due to angles getting fucked up when FOV is not 90
-		RunConsoleCommand("fov_desired", 90)
+		--RunConsoleCommand("fov_desired", 90)
 	end
 	
 	-- if we have free aim on, and we are not using a bipod, or we're using a bipod and we have not run out of "free aim time", then we should simulate free aim
@@ -521,13 +521,13 @@ function SWEP:AdjustMouseSensitivity()
 		
 		sensitivity = sensitivity * mod
 	elseif self.dt.State == CW_AIMING then
-		--if we're aiming and our aiming position is that of the sight we have installed - decrease our mouse sensitivity
-		--if (self.OverrideAimMouseSens and self.AimPos == self.ActualSightPos) and (self.dt.M203Active and CustomizableWeaponry.grenadeTypes:canUseProperSights(self.Grenade40MM) or not self.dt.M203Active) then
+		-- if we're aiming and our aiming position is that of the sight we have installed - decrease our mouse sensitivity
+		if (self.OverrideAimMouseSens and self.AimPos == self.ActualSightPos) and (self.dt.M203Active and CustomizableWeaponry.grenadeTypes:canUseProperSights(self.Grenade40MM) or not self.dt.M203Active) then
 			--return self.OvearrideAimMouseSens * mod
-			--sensitivity = self.OverrideAimMouseSens - mod * self.sensitivityAimContribution
-		--else
+			sensitivity = self.OverrideAimMouseSens - mod * self.sensitivityAimContribution
+		else
 			sensitivity = sensitivity * mod
-		--end
+		end
 		
 		--return math.Clamp(1 - self:getZoomAmount() / 100, 0.1, 1) * mod 
 		sensitivity = sensitivity - self:getZoomAmount() / 100
